@@ -38,3 +38,15 @@ section {
     border-radius: 10px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.253);
 }
+
+#lista-tarefas {
+    padding: 20px;
+}
+
+#lista li {
+    
+}
+
+#lista li:hover {
+    cursor: pointer;;
+}
