@@ -18,7 +18,7 @@ body {
 h1 {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: darkslategrey;
+    color: rgb(12, 12, 209);
 }
 
 main {
@@ -32,21 +32,37 @@ main {
 
 section {
     background-color: white;
-    width: 360px;
-    height: 600px;
+    width: 340px;
+    height: 350px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.253);
+    /*overflow: scroll;*/
 }
 
-#lista-tarefas {
+button[type=submit] {
+    cursor: pointer;
+}
+
+ol#lista-tarefas {
     padding: 20px;
 }
 
-#lista li {
-    
+li {
+    position: relative;
+    margin-bottom: 10px;
 }
 
-#lista li:hover {
+li button {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+li:hover {
     cursor: pointer;;
+}
+
+input {
+    width: 80%;
 }
