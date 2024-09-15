@@ -1,42 +1,40 @@
 function addTarefa() {
-    const tarefa = document.getElementById('tarefa').value.trim();
-    if (tarefa == '') {
-        alert('Por favor, digite um tarefa!')
-    } else {
+    const tarefa = document.getElementById('tarefa').value;
+    if (tarefa != '') {
         const lista = document.getElementById('lista-tarefas');
-        const cont = lista.getElementsByTagName('li').length;
-
-        if (cont < 10) {
+        const contador = lista.getElementsByTagName('li').length;
+        if (contador < 10) {
             const item = document.createElement('li');
             item.textContent = tarefa;
-
-            // Criar botão de exclusão
-            const btnExcluir = document.createElement('button');
-            btnExcluir.textContent = 'Excluir';
-            btnExcluir.style.marginLeft = '10px'; // Adiciona um espaço entre o texto e o botão
-            btnExcluir.addEventListener('click', function(){
-                lista.removeChild(item);
-                cont-=1;
-            });
-
-            // Adicionar botão de exclusão ao item
-            item.appendChild(btnExcluir);
-
-            item.addEventListener('click', function(){
-                item.style.textDecoration = 'line-through';
-                item.style.color = 'gray';
-            });
-            item.addEventListener('dblclick', function(){
-                item.style.textDecoration = 'none';
-                item.style.color = 'black';
-            });
             lista.appendChild(item);
-            document.getElementById('tarefa').value = '';
+            //document.getElementById('tarefa').value = '';
 
-            cont+=1;
+            //Criar checkbox
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox'
+            checkbox.addEventListener('change', function() {
+                if (checkbox.checked) {
+                    item.style.textDecoration = 'line-through';
+                    item.style.color = 'gray';
+                } else {
+                    item.style.textDecoration = 'none';
+                    item.style.color = 'black';
+                }
+            });
+            item.appendChild(checkbox);
+            
+            //Criar botão de excluir
+            const btnExcluir = document.createElement('button');
+            btnExcluir.textContent = 'Del';
+            btnExcluir.id = 'btnExcluir'
+            btnExcluir.addEventListener('click', function() {
+                lista.removeChild(item);
+            });
+            item.appendChild(btnExcluir);
         } else {
-            alert('Número máximo de tarefas atingido!');
-
+            alert('Você atingiu o limite de tarefas!');
         }
+    } else {
+        alert('Por favor, digite uma tarefa!');
     }
 }
