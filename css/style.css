@@ -18,7 +18,7 @@ body {
 h1 {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: black;
+    color: #333333;
 }
 
 main {
@@ -30,9 +30,8 @@ main {
 }
 
 section {
-    background-color: white;
+    background-color: #F7F7F7;
     width: 370px;
-    height: 350px;
     padding: 20px;
     border-radius: 10px;
     border: 1px solid gray;
@@ -62,9 +61,16 @@ ol#lista-tarefas {
 }
 
 li {
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
 }
 
-input[type=checkbox], button#btnExcluir {
-    
+input[type=checkbox] {
+    margin-left: auto;
+}
+
+button#btnExcluir {
+    margin-left: 10px;
 }
