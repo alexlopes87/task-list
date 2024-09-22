@@ -26,7 +26,6 @@ function addTarefa() {
             
             //Criar botão de excluir
             const btnExcluir = document.createElement('button');
-            //btnExcluir.textContent = 'Del';
             btnExcluir.innerHTML = '&#128465;';
             btnExcluir.id = 'btnExcluir';
             btnExcluir.title = 'Excluir';
@@ -40,7 +39,7 @@ function addTarefa() {
             lista.appendChild(item)
             document.getElementById('tarefa').value = '';
         } else {
-            alert('Você atingiu o limite de 20 tarefas!');
+            alert('Você atingiu o limite de tarefas!');
         }
     } else {
         alert('Por favor, digite uma tarefa!');
