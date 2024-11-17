@@ -1,3 +1,14 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const tarefaInput = document.getElementById('tarefa');
+
+    // Adiciona um evento de escuta para a tecla "Enter"
+    tarefaInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            addTarefa();
+        }
+    });
+});
+
 function addTarefa() {
     const tarefa = document.getElementById('tarefa').value;
     if (tarefa != '') {
@@ -8,7 +19,7 @@ function addTarefa() {
             const span = document.createElement('span');
             span.textContent = `${contador + 1}. ${tarefa}`;
             item.appendChild(span);
-
+            
             //Criar checkbox
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
@@ -32,6 +43,7 @@ function addTarefa() {
             btnExcluir.addEventListener('click', function() {
                 if (confirm('Tem certeza que deseja excluir a tarefa?')) {
                     lista.removeChild(item);
+                    atualizarNumeracao();
                 }
             });
             item.appendChild(btnExcluir);
@@ -39,9 +51,18 @@ function addTarefa() {
             lista.appendChild(item)
             document.getElementById('tarefa').value = '';
         } else {
-            alert('Você atingiu o limite de tarefas!');
+            alert('Você atingiu o limite de 20 tarefas!');
         }
     } else {
         alert('Por favor, digite uma tarefa!');
+    }
+}
+
+function atualizarNumeracao() {
+    const lista = document.getElementById('lista-tarefas');
+    const itens = lista.getElementsByTagName('li');
+    for (let i = 0; i < itens.length; i++) {
+        const span = itens[i].getElementsByTagName('span')[0];
+        span.textContent = `${i + 1}. ${span.textContent.split('. ')[1]}`; // Atualiza o número da tarefa
     }
 }
