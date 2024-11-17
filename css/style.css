@@ -23,11 +23,12 @@ main {
 
 main > h1 {
     margin-bottom: 20px;
+    font-size: 1.3em;
 }
 
 section {
     background-color: #fff;
-    width: 450px;
+    width: 320px;
     height: auto;
     padding: 20px;
     border-radius: 5px;
@@ -46,6 +47,10 @@ section li {
     background-color: rgb(205, 230, 167);
     margin: 3px 0px 3px 0px;
     padding: 5px;
+}
+
+section span {
+    word-break: break-all;
 }
 
 input[type=text] {
@@ -78,4 +83,26 @@ input[type=checkbox] {
 
 button#btnExcluir {
     margin-left: 10px;
+}
+
+/* Media queries */
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    main > h1 {
+        font-size: 1.7rem;
+    }
+    
+    section {
+        width: 450px;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+    main > h1 {
+        font-size: 2.5rem;
+    }
+
+    section {
+        width: 600px;
+    }
 }
