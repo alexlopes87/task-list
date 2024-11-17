@@ -43,6 +43,7 @@ section ul {
 
 section li {
     display: flex;
+    align-items: center;
     list-style: none;
     background-color: rgb(205, 230, 167);
     margin: 3px 0px 3px 0px;
@@ -51,6 +52,7 @@ section li {
 
 section span {
     word-break: break-all;
+    padding: 1px;
 }
 
 input[type=text] {
